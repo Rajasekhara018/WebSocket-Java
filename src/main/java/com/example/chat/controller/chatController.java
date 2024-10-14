@@ -17,4 +17,9 @@ public class chatController {
         System.out.println(message);
         return new ChatMessage(message.getMessage(), message.getUser());
     }
+    @MessageMapping("/send")
+    @SendTo("/topic/signaling")
+    public String handleSignalMessage(String message) {
+        return message; // Broadcast the signaling message to all connected clients
+    }
 }
