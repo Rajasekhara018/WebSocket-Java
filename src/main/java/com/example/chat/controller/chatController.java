@@ -15,6 +15,7 @@ public class chatController {
     @SendTo("/topic/{roomId}")
     public ChatMessage chat(@DestinationVariable String roomId, ChatMessage message) {
         System.out.println(message);
+        // changes made
         return new ChatMessage(message.getMessage(), message.getUser());
     }
     @MessageMapping("/send")
